@@ -43,7 +43,7 @@ grep -i -w 'photography' $FILE > performing_arts4.json
 grep -i -w 'musician' $FILE > performing_arts5.json
 grep -i -w 'dramatics' $FILE > performing_arts6.json
 grep -i -w 'sculpting' $FILE > performing_arts7.json
-grep -i -w 'painting' $FILE > peforming_arts8.json
+grep -i -w 'painting' $FILE > performing_arts8.json
 
 grep -i -w 'philosoph*' $FILE > philosophy1.json
 grep -i -w 'ethics' $FILE > philosophy2.json
