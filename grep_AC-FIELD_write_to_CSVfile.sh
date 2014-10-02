@@ -17,7 +17,7 @@ grep -i -w 'ancient Greek' $FILE > classics3.csv
 grep -i 'histor*' $FILE > history_temp.csv
 grep -v -i -w 'art histor*' history_temp.json.csv > history1.csv
 
-grep -i -w 'film studies' $FILE > film_studies1.csv
+grep -i -w 'film' $FILE > film_studies1.csv
 grep -i -w 'cinema' $FILE > film_studies2.csv
 
 grep -i 'language*' $FILE > language1.csv
