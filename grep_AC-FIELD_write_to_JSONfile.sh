@@ -45,7 +45,7 @@ grep -i -w 'dramatics' $FILE > performing_arts6.json
 grep -i -w 'sculpting' $FILE > performing_arts7.json
 grep -i -w 'painting' $FILE > performing_arts8.json
 
-grep -i -w 'philosoph*' $FILE > philosophy1.json
+grep -i 'philosoph*' $FILE > philosophy1.json
 grep -i -w 'ethics' $FILE > philosophy2.json
 grep -i -w 'epistemology' $FILE > philosophy3.json
 grep -i -w 'metaphysics' $FILE > philosophy4.json
