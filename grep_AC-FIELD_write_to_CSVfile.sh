@@ -25,11 +25,10 @@ grep -i 'linguistic*' $FILE > language2.csv
 grep -i -w 'grammar' $FILE > language3.csv
 
 grep -i -w 'literature' $FILE > literature1.csv
-grep -i -w 'comparative literature' $FILE > literature2.csv
-grep -i -w 'book studies' $FILE > literature3.csv
-grep -i -w 'literary' $FILE > literature4.csv
-grep -i -w 'poetry' $FILE > literature5.csv
-grep -i -w 'prose' $FILE > literature6.csv
+grep -i -w 'book studies' $FILE > literature2.csv
+grep -i -w 'literary' $FILE > literature3.csv
+grep -i -w 'poetry' $FILE > literature4.csv
+grep -i -w 'prose' $FILE > literature5.csv
 
 grep -i -w 'music' $FILE > music1.csv
 grep -i -w 'musicology' $FILE > music2.csv
