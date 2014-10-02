@@ -17,7 +17,7 @@ grep -i -w 'ancient Greek' $FILE > classics3.json
 grep -i 'histor*' $FILE > history_temp.json
 grep -v -i 'art histor*' history_temp.json > history1.json
 
-grep -i -w 'film studies' $FILE > film_studies1.json
+grep -i -w 'film' $FILE > film_studies1.json
 grep -i -w 'cinema' $FILE > film_studies2.json
 
 grep -i 'language*' $FILE > language1.json
