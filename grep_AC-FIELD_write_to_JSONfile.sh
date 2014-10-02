@@ -25,11 +25,10 @@ grep -i 'linguistic*' $FILE > language2.json
 grep -i -w 'grammar' $FILE > language3.json
 
 grep -i -w 'literature' $FILE > literature1.json
-grep -i -w 'comparative literature' $FILE > literature2.json
-grep -i -w 'book studies' $FILE > literature3.json
-grep -i -w 'literary' $FILE > literature4.json
-grep -i -w 'poetry' $FILE > literature5.json
-grep -i -w 'prose' $FILE > literature6.json
+grep -i -w 'book studies' $FILE > literature2.json
+grep -i -w 'literary' $FILE > literature3.json
+grep -i -w 'poetry' $FILE > literature4.json
+grep -i -w 'prose' $FILE > literature5.json
 
 grep -i -w 'music' $FILE > music1.json
 grep -i -w 'musicology' $FILE > music2.json
