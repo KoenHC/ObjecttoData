@@ -5,7 +5,7 @@ FILE=$1
 
 grep -i -w 'liberal arts' $FILE > arts
 
-grep -i -w 'art histor*' $FILE > art_history1.csv
+grep -i    'art histor*' $FILE > art_history1.csv
 grep -i -w 'archaeology and art' $FILE > art_history2.csv
 grep -i -w 'archeology and art' $FILE > art_history3.csv
 grep -i -w 'architecture' $FILE > art_history4.csv
