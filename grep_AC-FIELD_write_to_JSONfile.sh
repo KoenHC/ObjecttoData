@@ -9,10 +9,12 @@ grep -i -w 'art and archaeology' $FILE > art_history2.json
 grep -i -w 'architecture' $FILE > art_history3.json
 
 grep -i 'classic*' $FILE > classics1.json
-grep -i -w 'Latin' $FILE > classics_temp.json | grep -v -i 'American Latin' classics_temp.json > classics2.json
+grep -i -w 'Latin' $FILE > classics_temp.json
+grep -v -i 'America*' classics_temp.json > classics2.json
 grep -i -w 'ancient Greek' $FILE > classics3.json
 
-grep -i 'histor*' $FILE > history_temp.json | grep -v -i -w 'art history' history_temp.json > history1.json
+grep -i 'histor*' $FILE > history_temp.json
+grep -v -i 'art histor*' history_temp.json > history1.json
 
 grep -i -w 'film studies' $FILE > film_studies1.json
 grep -i -w 'cinema' $FILE > film_studies2.json
@@ -33,9 +35,10 @@ grep -i -w 'musicology' $FILE > music2.json
 grep -i -w 'musical' $FILE > music3.json
 grep -i -w 'acoustics' $FILE > music4.json
 
-grep -i -w 'performing arts' $FILE > peforming_arts1.json
-grep -i -w 'visual arts' $FILE > peforming_arts2.json
-grep -i 'theat*' $FILE > peforming_arts_temp.json | grep -v -i -w 'Southeast' peforming_arts_temp.json > performing_arts3.json
+grep -i -w 'performing arts' $FILE > performing_arts1.json
+grep -i -w 'visual arts' $FILE > performing_arts2.json
+grep -i 'theat*' $FILE > performing_arts_temp.json
+grep -v -i 'Southeast*' performing_arts_temp.json > performing_arts3.json
 grep -i -w 'photography' $FILE > peforming_arts4.json
 grep -i -w 'musician' $FILE > peforming_arts5.json
 grep -i -w 'dramatics' $FILE > peforming_arts6.json
