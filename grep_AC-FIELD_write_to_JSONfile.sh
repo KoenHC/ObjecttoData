@@ -7,6 +7,7 @@ grep -i -w 'liberal arts' $FILE > arts.json
 grep -i 'art histor*' $FILE > art_history1.json
 grep -i -w 'art and archaeology' $FILE > art_history2.json
 grep -i -w 'architecture' $FILE > art_history3.json
+grep -i 'history of art*' $FILE > art_history4.json
 
 grep -i 'classic*' $FILE > classics1.json
 grep -i -w 'Latin' $FILE > classics_temp.json
