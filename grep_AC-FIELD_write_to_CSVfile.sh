@@ -15,7 +15,7 @@ grep -v -i 'America*' classics_temp.csv > classics2.csv
 grep -i -w 'ancient Greek' $FILE > classics3.csv
 
 grep -i 'histor*' $FILE > history_temp.csv
-grep -v -i -w 'art histor*' history_temp.json.csv > history1.csv
+grep -v -i -w 'art histor*' history_temp.csv > history1.csv
 
 grep -i -w 'film' $FILE > film_studies1.csv
 grep -i -w 'cinema' $FILE > film_studies2.csv
@@ -35,9 +35,9 @@ grep -i -w 'musicology' $FILE > music2.csv
 grep -i -w 'musical' $FILE > music3.csv
 grep -i -w 'acoustics' $FILE > music4.csv
 
-grep -i -w 'performing arts' $FILE > peforming_arts1.csv
-grep -i -w 'visual arts' $FILE > peforming_arts2.csv
-grep -i 'theat*' $FILE > peforming_arts_temp.csv
+grep -i -w 'performing arts' $FILE > performing_arts1.csv
+grep -i -w 'visual arts' $FILE > performing_arts2.csv
+grep -i 'theat*' $FILE > performing_arts_temp.csv
 grep -v -i 'Southeast*' performing_arts_temp.csv > performing_arts3.csv
 grep -i -w 'photography' $FILE > performing_arts4.csv
 grep -i -w 'musician' $FILE > performing_arts5.csv
