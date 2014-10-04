@@ -9,10 +9,12 @@ grep -i -w 'art and archaeology' $FILE > art_history2.csv
 grep -i -w 'architecture' $FILE > art_history3.csv
 grep -i 'history of art*' $FILE > art_history4.csv
 
-grep -i 'classic*' $FILE > classics1.csv
+grep -i -w 'classics' $FILE > classics1.csv
 grep -i -w 'Latin' $FILE > classics_temp.csv
 grep -v -i 'America*' classics_temp.csv > classics2.csv
 grep -i -w 'ancient Greek' $FILE > classics3.csv
+grep -i -w 'classical' $FILE > classics4.csv
+grep -i 'classicis*' $FILE > classics5.csv
 rm classics_temp.csv
 
 grep -i 'histor*' $FILE > history_temp.csv
