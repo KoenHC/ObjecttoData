@@ -1,10 +1,11 @@
-# From sorted to two separate files for frequencies and years. These two files have to be combined into one excel file, but into two separate columns. With the data organised this way, we can make graphs.
+# from_sorted_to_fq_yrs.sh  
+# With the data organised this way, we can make graphs.
+# Be careful you don't overwrite (the name output is the same with each run)!
 
+cat $FILE | ./jq .pub_date | sort > pubdates.csv
 
-cat art_history_sorted.json | ./jq .pub_date | sort > art_history_pubdates.csv
+cat pubdates.csv | awk -F '\-' '{print $1}' | uniq -c > frequences_years.csv
 
-cat art_history_pubdates.csv | awk -F '\-' '{print $1}' | uniq -c > art_history_frequences_years.csv
+cat frequences_years.csv | awk '{print $1}' > frequencies.csv
 
-cat art_history_frequences_years.csv | awk '{print $1}' > art_history_frequencies.csv
-
-cat art_history_frequences_years.csv | awk -F '\"' '{print $2}' > art_history_years.csv
+cat frequences_years.csv | awk -F '\"' '{print $2}' > years.csv
