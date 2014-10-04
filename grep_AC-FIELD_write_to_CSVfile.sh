@@ -13,12 +13,14 @@ grep -i 'classic*' $FILE > classics1.csv
 grep -i -w 'Latin' $FILE > classics_temp.csv
 grep -v -i 'America*' classics_temp.csv > classics2.csv
 grep -i -w 'ancient Greek' $FILE > classics3.csv
+rm classics_temp.csv
 
 grep -i 'histor*' $FILE > history_temp.csv
 grep -v -i -w 'art histor*' history_temp.csv > history1.csv
 grep -i -w 'antiquity' $FILE > history2.csv
 grep -i -w 'Middle Ages' $FILE > history3.csv
 grep -i -w 'Early Modern' $FILE > history4.csv
+rm history_temp.csv
 
 grep -i -w 'film' $FILE > film_studies1.csv
 grep -i -w 'cinema' $FILE > film_studies2.csv
@@ -47,6 +49,7 @@ grep -i -w 'musician' $FILE > performing_arts5.csv
 grep -i -w 'dramatics' $FILE > performing_arts6.csv
 grep -i -w 'sculpting' $FILE > performing_arts7.csv
 grep -i -w 'painting' $FILE > performing_arts8.csv
+rm performing_arts_temp.csv
 
 grep -i 'philosoph*' $FILE > philosophy1.csv
 grep -i -w 'ethics' $FILE > philosophy2.csv
