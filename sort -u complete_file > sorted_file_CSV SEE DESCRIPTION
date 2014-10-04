@@ -1,0 +1,11 @@
+# sort -u complete_file sorted_file_CSV.sh
+
+sort -u art_history_complete.csv > art_history_sorted.csv
+sort -u classics_complete.csv > classics_sorted.csv
+sort -u film_studies_complete.csv > film_studies_sorted.csv
+sort -u history_complete.csv > history_sorted.csv
+sort -u language_complete.csv > language_sorted.csv
+sort -u literature_complete.csv > literature_sorted.csv
+sort -u performing_arts_complete.csv > performing_arts_sorted.csv
+sort -u philosophy_complete.csv > philosophy_sorted.csv
+sort -u religion_complete.csv > religion_sorted.csv
