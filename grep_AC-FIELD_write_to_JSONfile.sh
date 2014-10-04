@@ -9,10 +9,12 @@ grep -i -w 'art and archaeology' $FILE > art_history2.json
 grep -i -w 'architecture' $FILE > art_history3.json
 grep -i 'history of art*' $FILE > art_history4.json
 
-grep -i 'classic*' $FILE > classics1.json
+grep -i -w 'classics' $FILE > classics1.json
 grep -i -w 'Latin' $FILE > classics_temp.json
 grep -v -i 'America*' classics_temp.json > classics2.json
 grep -i -w 'ancient Greek' $FILE > classics3.json
+grep -i -w 'classical' $FILE > classics4.json
+grep -i 'classicis*' $FILE > classics5.json
 rm classics_temp.json
 
 grep -i 'histor*' $FILE > history_temp.json
