@@ -1,0 +1,11 @@
+# sort -u complete_file sorted_file_JSON.sh
+
+sort -u art_history_complete.json > art_history_sorted.json
+sort -u classics_complete.json > classics_sorted.json
+sort -u film_studies_complete.json > film_studies_sorted.json
+sort -u history_complete.json > history_sorted.json
+sort -u language_complete.json > language_sorted.json
+sort -u literature_complete.json > literature_sorted.json
+sort -u performing_arts_complete.json > performing_arts_sorted.json
+sort -u philosophy_complete.json > philosophy_sorted.json
+sort -u religion_complete.json > religion_sorted.json
