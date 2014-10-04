@@ -13,12 +13,14 @@ grep -i 'classic*' $FILE > classics1.json
 grep -i -w 'Latin' $FILE > classics_temp.json
 grep -v -i 'America*' classics_temp.json > classics2.json
 grep -i -w 'ancient Greek' $FILE > classics3.json
+rm classics_temp.json
 
 grep -i 'histor*' $FILE > history_temp.json
 grep -v -i 'art histor*' history_temp.json > history1.json
 grep -i -w 'antiquity' $FILE > history2.json
 grep -i -w 'Middle Ages' $FILE > history3.json
 grep -i -w 'Early Modern' $FILE> history4.json
+rm history_temp.json
 
 grep -i -w 'film' $FILE > film_studies1.json
 grep -i -w 'cinema' $FILE > film_studies2.json
@@ -47,6 +49,7 @@ grep -i -w 'musician' $FILE > performing_arts5.json
 grep -i -w 'dramatics' $FILE > performing_arts6.json
 grep -i -w 'sculpting' $FILE > performing_arts7.json
 grep -i -w 'painting' $FILE > performing_arts8.json
+rm performing_arts_temp.json
 
 grep -i 'philosoph*' $FILE > philosophy1.json
 grep -i -w 'ethics' $FILE > philosophy2.json
