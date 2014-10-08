@@ -1,6 +1,5 @@
 # grep_AC-FIELD_write_to_JSONfile.sh
 
-FILE=$1
 
 grep -i -w 'liberal arts' $FILE > arts.json
 
