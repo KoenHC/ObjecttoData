@@ -1,7 +1,7 @@
 # grep_AC-FIELD_write_to_JSONfile.sh
 
 
-grep -i -w 'liberal arts' $FILE > arts.json
+grep -i -w 'liberal arts' $FILE > liberal_arts.json
 
 grep -i 'art histor*' $FILE > art_history1.json
 grep -i -w 'art and archaeology' $FILE > art_history2.json
@@ -22,11 +22,6 @@ grep -i -w 'Middle Ages' $FILE > history3.json
 grep -i -w 'Early Modern' $FILE> history4.json
 rm history_temp.json
 
-grep -i -w 'film studies' $FILE > media_studies1.json
-grep -i -w 'cinema studies' $FILE > media_studies2.json
-grep -i -w 'musicology' $FILE > media_studies3.json
-grep -i -w 'theater studies' $FILE > media_studies4.json
-
 grep -i 'language*' $FILE > language1.json
 grep -i 'linguistic*' $FILE > language2.json
 grep -i -w 'grammar' $FILE > language3.json
@@ -37,6 +32,10 @@ grep -i -w 'literary' $FILE > literature3.json
 grep -i -w 'poetry' $FILE > literature4.json
 grep -i -w 'prose' $FILE > literature5.json
 
+grep -i -w 'film studies' $FILE > media_studies1.json
+grep -i -w 'cinema studies' $FILE > media_studies2.json
+grep -i -w 'musicology' $FILE > media_studies3.json
+grep -i -w 'theater studies' $FILE > media_studies4.json
 grep -i -w 'visual arts' $FILE > arts1.json
 grep -i -w 'architecture' $FILE > arts2.json
 grep -i -w 'painting' $FILE > arts3.json
@@ -46,7 +45,7 @@ grep -i -w 'performing arts' $FILE > arts6.json
 grep -i -w 'music' $FILE > arts7.json
 grep -i -w 'film' $FILE > arts_temp.json
 grep -i -w -v 'film studies' arts_temp.json > arts8.json
-grep -i 'theat*' > arts_temp2.json
+grep -i 'theat*' $FILE > arts_temp2.json
 grep -i -v 'Southeast*' arts_temp2.json > arts_temp3.json
 grep -i -w -v 'theater studies' arts_temp3.json > arts9.json
 grep -i -w 'dance' $FILE > arts10.json
