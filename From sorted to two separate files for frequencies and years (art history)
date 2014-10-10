@@ -2,7 +2,7 @@
 # With the data organised this way, we can make graphs.
 # Be careful you don't overwrite (the name output is the same with each run)!
 
-./jq .pub_date | sort > pubdates.csv
+./jq .pub_date | sort -u > pubdates.csv
 
 cat pubdates.csv | awk -F '\-' '{print $1}' | uniq -c > frequences_years.csv
 
