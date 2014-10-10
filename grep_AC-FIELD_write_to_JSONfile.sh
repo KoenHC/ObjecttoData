@@ -36,6 +36,16 @@ grep -i -w 'film studies' $FILE > media_studies1.json
 grep -i -w 'cinema studies' $FILE > media_studies2.json
 grep -i -w 'musicology' $FILE > media_studies3.json
 grep -i -w 'theater studies' $FILE > media_studies4.json
+
+grep -i 'philosoph*' $FILE > philosophy1.json
+grep -i -w 'ethics' $FILE > philosophy2.json
+grep -i -w 'epistemology' $FILE > philosophy3.json
+grep -i -w 'metaphysics' $FILE > philosophy4.json
+
+grep -i -w 'religion' $FILE > religion1.json
+grep -i 'religious*' $FILE > religion2.json
+grep -i 'theolog*' $FILE > religion3.json
+
 grep -i -w 'visual arts' $FILE > arts1.json
 grep -i -w 'architecture' $FILE > arts2.json
 grep -i -w 'painting' $FILE > arts3.json
@@ -53,12 +63,3 @@ grep -i -w 'dramatics' $FILE > arts11.json
 rm arts_temp.json
 rm arts_temp2.json
 rm arts_temp3.json
-
-grep -i 'philosoph*' $FILE > philosophy1.json
-grep -i -w 'ethics' $FILE > philosophy2.json
-grep -i -w 'epistemology' $FILE > philosophy3.json
-grep -i -w 'metaphysics' $FILE > philosophy4.json
-
-grep -i -w 'religion' $FILE > religion1.json
-grep -i 'religious*' $FILE > religion2.json
-grep -i 'theolog*' $FILE > religion3.json
