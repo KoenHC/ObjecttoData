@@ -1,0 +1,24 @@
+sort –u performing_arts.json > performing_clean.json
+grep –ciw 'performing arts' performing_clean.json
+grep –ciw 'visual arts' performing_clean.json
+grep –i 'theat*' performing_clean.json | grep –viw 'theater studies' | grep –civw 'theas'
+grep –ciw 'theater studies' performing_clean.json
+grep –ciw 'photography' performing_clean.json
+grep –ciw 'musician' performing_clean.json
+grep –ciw 'dramatics' performing_clean.json
+grep –ciw 'sculpting' performing_clean.json
+grep –ciw 'painting' performing_clean.json
+
+sort –u philosophy.json > philosophy_clean.json
+grep –ciw 'philosophy' philosophy_clean.json
+grep –ciw 'philosophic*' philosophy_clean.json
+grep –ciw 'philosopher' philosophy_clean.json
+grep –ciw 'ethics' philosophy_clean.json
+grep –ciw 'epistemology' philosophy_clean.json
+grep –ciw 'metaphysics' philosophy_clean.json
+
+sort –u religion.json > religion_clean.json
+grep –ciw 'religion' religion_clean.json
+grep –i 'religious*' religion_clean.json | grep –vciw “religious studies”
+grep –ci 'theolog*' religion_clean.json
+grep –ciw 'religious studies' religion_clean.json
