@@ -1,0 +1,57 @@
+#Count categories and subcategories
+
+grep -i --count 'art histor* art_history_sorted.json
+grep -i -w --count 'history of art' art_history_sorted.json
+grep -i -w --count 'art and archaeology' art_history_sorted.json
+
+grep -i -w --count 'classics' classics_sorted.json
+grep -i -w --count 'classical' classics_sorted.json
+grep -i --count 'classics*' classics_sorted.json
+grep -i -w --count 'ancient greek' classics_sorted.json
+grep -i -w --count 'latin' classics_sorted.json
+
+grep -i --count 'histor*' history_sorted.json
+grep -i -w --count 'antiquity' history_sorted.json
+grep -i -w --count 'middle ages' history_sorted.json
+grep -i -w --count 'early modern' history_sorted.json
+
+grep -i --count 'language*' language_sorted.json
+grep -i --count 'linguistic*' language_sorted.json
+grep -i -w --count 'grammar' language_sorted.json
+
+grep -i -w --count 'literature' literature_sorted.json
+grep -i -w --count 'comparative literature' literature_sorted.json
+grep -i -w --count 'book studies' literature_sorted.json
+grep -i -w --count 'literary' literature_sorted.json
+grep -i -w --count 'poetry' literature_sorted.json
+grep -i -w --count 'prose' literature_sorted.json
+
+grep -i -w --count 'media studies' mediastudies_sorted.json
+grep -i -w --count 'film studies' mediastudies_sorted.json
+grep -i -w --count 'cinema studies' mediastudies_sorted.json
+grep -i -w --count 'musicology' mediastudies_sorted.json
+grep -i -w --count 'theater studies' mediastudies_sorted.json
+
+grep -i -w --count 'philosophy' philosophy_sorted.json
+grep -i --count 'philosophic*' philosophy_sorted.json
+grep -i -w --count 'philosopher' philosophy_sorted.json
+grep -i -w --count 'ethics' philosophy_sorted.json
+grep -i -w --count 'epistemology' philosophy_sorted.json
+grep -i -w --count 'metaphysics' philosophy_sorted.json
+
+grep -i -w --count 'religion' religion_sorted.json
+grep -i -w --count 'religious' religion_sorted.json
+grep -i --count 'theolog*' religion_sorted.json
+grep -i -w 'religious studies' religion_sorted.json
+
+grep -i -w --count 'visual arts' arts_sorted.json
+grep -i -w --count 'architecture' arts_sorted.json
+grep -i -w --count 'paintaing' arts_sorted.json
+grep -i -w --count 'drawing' arts_sorted.json
+grep -i -w --count 'photography' arts_sorted.json
+grep -i -w --count 'performing arts' arts_sorted.json
+grep -i -w --count 'music' arts_sorted.json
+grep -i -w --count 'film' arts_sorted.json
+grep -i --count 'theat* arts_sorted.json
+grep -i -w --count 'dance' arts_sorted.json
+grep -i -w --count 'dramatics' arts_sorted.json
