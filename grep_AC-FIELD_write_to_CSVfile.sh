@@ -37,6 +37,15 @@ grep -i -w 'literary' $FILE > literature3.csv
 grep -i -w 'poetry' $FILE > literature4.csv
 grep -i -w 'prose' $FILE > literature5.csv
 
+grep -i 'philosoph*' $FILE > philosophy1.csv
+grep -i -w 'ethics' $FILE > philosophy2.csv
+grep -i -w 'epistemology' $FILE > philosophy3.csv
+grep -i -w 'metaphysics' $FILE > philosophy4.csv
+
+grep -i -w 'religion' $FILE > religion1.csv
+grep -i 'religious*' $FILE > religion2.csv
+grep -i 'theolog*' $FILE > religion3.csv
+
 grep -i -w 'visual arts' $FILE > arts1.csv
 grep -i -w 'architecture' $FILE > arts2.csv
 grep -i -w 'painting' $FILE > arts3.csv
@@ -54,12 +63,3 @@ grep -i -w 'dramatics' $FILE > arts11.csv
 rm arts_temp.csv
 rm arts_temp2.csv
 rm arts_temp3.csv
-
-grep -i 'philosoph*' $FILE > philosophy1.csv
-grep -i -w 'ethics' $FILE > philosophy2.csv
-grep -i -w 'epistemology' $FILE > philosophy3.csv
-grep -i -w 'metaphysics' $FILE > philosophy4.csv
-
-grep -i -w 'religion' $FILE > religion1.csv
-grep -i 'religious*' $FILE > religion2.csv
-grep -i 'theolog*' $FILE > religion3.csv
