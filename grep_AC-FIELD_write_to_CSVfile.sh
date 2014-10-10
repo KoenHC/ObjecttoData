@@ -16,7 +16,7 @@ grep -i 'classicis*' $FILE > classics5.csv
 rm classics_temp.csv
 
 grep -i 'histor*' $FILE > history_temp.csv
-grep -v -i -w 'art histor*' history_temp.csv > history1.csv
+grep -v -i 'art histor*' history_temp.csv > history1.csv
 grep -i -w 'antiquity' $FILE > history2.csv
 grep -i -w 'Middle Ages' $FILE > history3.csv
 grep -i -w 'Early Modern' $FILE > history4.csv
