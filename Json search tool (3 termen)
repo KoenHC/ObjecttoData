@@ -1,6 +1,0 @@
-IFS=$'\n'
-FILE=$1
-KEYWORD1=$2
-KEYWORD2=$3
-KEYWORD3=$4 
-cat "$1" | jq [".$2"],[".$3"],[".$4"]
