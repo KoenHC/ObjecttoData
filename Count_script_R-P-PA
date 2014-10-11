@@ -2,7 +2,7 @@
 
 sort –u philosophy.json > philosophy_clean.json
 grep –ciw 'philosophy' philosophy_clean.json
-grep –ciw 'philosophic*' philosophy_clean.json
+grep –ci 'philosophic*' philosophy_clean.json
 grep –ciw 'philosopher' philosophy_clean.json
 grep –ciw 'ethics' philosophy_clean.json
 grep –ciw 'epistemology' philosophy_clean.json
