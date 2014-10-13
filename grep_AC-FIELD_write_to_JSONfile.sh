@@ -32,10 +32,11 @@ grep -i -w 'literary' $FILE > literature3.json
 grep -i -w 'poetry' $FILE > literature4.json
 grep -i -w 'prose' $FILE > literature5.json
 
-grep -i -w 'film studies' $FILE > media_studies1.json
-grep -i -w 'cinema studies' $FILE > media_studies2.json
-grep -i -w 'musicology' $FILE > media_studies3.json
-grep -i -w 'theater studies' $FILE > media_studies4.json
+grep -i -w 'media studies' $FILE > media_studies1.json
+grep -i -w 'film studies' $FILE > media_studies2.json
+grep -i -w 'cinema studies' $FILE > media_studies3.json
+grep -i -w 'musicology' $FILE > media_studies4.json
+grep -i -w 'theater studies' $FILE > media_studies5.json
 
 grep -i 'philosoph*' $FILE > philosophy1.json
 grep -i -w 'ethics' $FILE > philosophy2.json
