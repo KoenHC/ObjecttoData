@@ -26,10 +26,11 @@ grep -i 'language*' $FILE > language1.csv
 grep -i 'linguistic*' $FILE > language2.csv
 grep -i -w 'grammar' $FILE > language3.csv
 
-grep -i -w 'film studies' $FILE > media_studies1.csv
-grep -i -w 'cinema studies' $FILE > media_studies2.csv
-grep -i -w 'musicology' $FILE > media_studies3.csv
-grep -i -w 'theater studies' $FILE > media_studies4.csv
+grep -i -w 'media studies' $FILE > media_studies1.csv
+grep -i -w 'film studies' $FILE > media_studies2.csv
+grep -i -w 'cinema studies' $FILE > media_studies3.csv
+grep -i -w 'musicology' $FILE > media_studies4.csv
+grep -i -w 'theater studies' $FILE > media_studies5.csv
 
 grep -i -w 'literature' $FILE > literature1.csv
 grep -i -w 'book studies' $FILE > literature2.csv
