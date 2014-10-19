@@ -1,0 +1,323 @@
+--FROM OBJECTS TO DATA--
+Research Portfolio
+
+Counting 
+the 
+Humanities
+
+Arlette Mauritsz – UvAID 10851305
+
+Berend Mul  - UvAID 10858954
+
+Koen van Schaik – UvAID 10891927
+
+
+
+
+From Objects to Data
+Prof.: dr.  M.H.A Koolen &  dr. J.H. Hoogstad
+
+
+
+
+UvA / VU University Amsterdam				19 October 2014
+
+
+
+
+
+Table of Contents
+
+1. Research question and methodology	2
+2. Scripts	5
+3. Results	8
+4. Interpretation and preliminary explanation of results	11
+5. Difficulties	12
+6. References	13
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Research question and methodology
+
+For a complete overview of the process that led us to this particular research project we refer to our preliminary portfolio report. The question which is being discussed in this report, is the following:
+
+With which academic field(s) are the humanities primarily associated in the New York Times from 1853-2014, and (how) has this changed through time?
+
+As proper humanities scholars befit we did not formulate an explicit hypothesis. Although carefully formulated, we predicted that there would certainly be a discernible change through time considering the long time span our primary source entails.  
+
+Compiling a list of academic disciplines
+As a first step we compiled a list of relevant academic fields within the Humani-ties/Liberal Arts. We put these fields under nine major categories, thereby preventing too narrow definitions.
+To make this list with as much impartiality on our side we decided to cross-reference the definition of the Humanities within the top 10 U.S. universities in this respective field. We   reasoned that these prestigious institutions would have more influence on perception. For this we have used the CWTS Leiden Ranking 2013. This world ranking looks at the influence of universities’ publications within the academic world. It includes a clear description of methodology and justification and it allows one to select ranking in different academic fields. Although CWTS measures influence within the academic world and not society at large, we argue that the top listed university’s influence on definition is greater than ours. We choose the year 2013 instead of 2014 because this explicitly includes the humanities together with the social sciences (2014 does not explicitly list the humanities). We limited our list to American institutions because our object of study is an American newspaper.
+In 2013 the top 10 American universities within the field of the Social Sciences & Humanities were:
+ 
+1.	MIT (Massachusetts Institute of Technology)
+2.	University Chicago
+3.	Stanford University
+4.	Harvard University
+5.	Princeton University
+6.	Yale University
+7.	Darthmouth College
+8.	University of California – Berkely
+9.	Northwestern University
+10.	University of California – Los Angeles 
+
+We looked at the website for each university to determine how their humanities departments/faculties were categorised. Ideally we looked at sub-departments, but often the list of undergraduate majors provided better results (e.g. when departments carried an individual’s name).
+Some universities combine their departments (‘Liberal Arts & Sciences'). In these cases we decided to omit obvious non-humanities disciplines. Because wanted to be as unbiased as possible we did include ambiguous cases. 
+In the table ‘Fields in the Humanities’ we made an overview of all major studies, programs and majors we found. By cross-referencing these findings we deduced the general fields in the humanities and checked whether each university included these or not (see table General Fields in the Humanities) 
+We choose to exclude some fields in our research because they are associated with the humanities only sporadically. These included: anthropology, journalism, political science and rhetoric. Other select fields with close ties to an overall field of study, or much interdisciplinary, we put together in one category. 
+We also had to take into account that archaeology, especially in America, is a field which is strongly associated with anthropology . The NY Times confirmed this to us, by showing two different archaeology sections. Those with the ‘’value’’ ART AND ARCHAEOLOGY and those with the ‘’value’’ ANTHROPOLGY AND ARCHAEOLOGY. For our research we will only incorporate the first one. 
+Image 1) Screenshot from the ‘General Fields in the Humanities’ table. 
+
+
+
+The humanities fields we have queried for are the following:
+1.	Art History
+2.	Classics
+3.	History
+4.	Language
+5.	Literature
+6.	Media Studies
+7.	Philosophy
+8.	Religion
+9.	Arts 
+
+But before we could simply search these categories, we had to think of subcategories, or ‘supporting search terms’, which help us cover our search of the broader main categories in the dataset. Some of the categories are obvious and are always used as such but others need some extension in order to be complete (e.g. classics: Latin, Ancient Greek) or have synonyms. For categories like Language and Film we had to make important choices. Should we search independently for every language (English, French, Italian et cetera)?  And would a search for ‘film’ suffice? Both would amount to a huge quantity of (mostly irrelevant) hits. Only by manually reading all results would we be able to distinguish whether a hit was too general, or related to our humanities field. Therefore we looked for other subcategories.
+We compiled the following subcategories:
+Category	Subcategories
+Art History	History of art, archaeology
+Classics	Ancient Greek, Latin
+History	Antiquity, Middle Ages, Early Modern
+Language	linguistics, grammar
+Literature	Comparative literature, book studies, literary, poetry, prose
+Media Studies	Musicology, film studies, cinema studies, theater studies
+Philosophy	Ethics, metaphysics, epistemology
+Religion	Religious (studies), theology
+Arts	visual arts, architecture, painting, drawing, photography, performing arts, music, film, theatre/theatre, dance, dramatics
+  Image 2) Table ‘Categories | Subcategories’
+
+ 
+2. Scripts
+
+Acquiring data / parsing & filtering data
+We queried for each main category and for each of the subcategories in the ny-times_humanities_flat.json file: sh grep_AC-FIELD_write_to_JSON.sh ny-times_humanities_flat.json file.
+
+https://github.com/KoenHC/ObjecttoData/blob/master/grep_AC-FIELD_write_to_JSONfile.sh
+
+Writing our first script (grep_AC-FIELD_write_to_JSON.sh) to extract the data was not as easy as we first expected. The difficulty lies not with the commands themselves - we used fairly simple tools, reasoning that it was best to use the right yet simple tool for a complex problem, rather than the opposite. The difficulty was that we had to work very precisely to avoid duplicates, while avoiding excluding too much valuable data. After each search we had to check whether our results made sense, then fine tune our lines further. This process repeated itself many times over.
+As can be seen, we have extensively made use of wildcards (*) to cover all possible forms of words. The disadvantage of this approach is that it also tags much unintended terms. We have tried to be precise as possible in our scripts.
+Our first category, ‘art history’, we defined as ‘art histor*’. This query also included e.g. art historians. ‘Latin’ posed the first more difficult sub-category. Just searching for Latin also includes all Latin American results. As can be read in the script, we decided to make a temporary map where all results would be put, followed by a grep –v ‘America*’ command to get rid of ‘Latin American hits’. We searched for ‘ancient Greek’ to prevent the Modern Greek language/churches/communities et cetera to come in our file.
+Searching for ‘histor*’ (which includes history, historians, historiography et cetera) we realised that these would include anything ‘art history’ related. We ran a grep –v ‘art histor*’ command here. This way we kept the two categories separated. The same problem occurred when searching for the subcategories ‘film’ and ‘theater’: we had the remove the ‘film studies’ and ‘theater studies’ to keep the two categories separated.
+With searching for theat* we encountered a strange problem: it also selects ‘south-east’. To remove these we again ran a grep –v command. 
+
+After running this script, we combined the results for each category in one file (nine files in total)with: cat ...*.json > ..._complete.json
+
+Because the results for subcategories may deliver duplicates in the combined file, we executed a ‘sort –u’ command for each category. This command removed the duplicates in our files, but we noticed from the .csv files in Excel, that some duplicates still remained. These are mainly ‘paid death articles’, which were not removed by the command because the metadata differs slightly. Because we cannot remove these with commands and it is too much work to parse all data manually, we have to keep in mind that there may be some duplicates in each category. For reasons of transparency, we have made a graph in which we show the number of ‘paid death notices’ per category.
+For the category ‘classics’ we had to perform an extra command. Because ‘classics’/‘classical’ are broad terms, the grep command also delivered a lot of ‘classics’ in music. Therefore, we decided to run a grep –v –i ‘music*’ command on the ‘classics_sorted.json’ file to get all the music-related articles out of it. This solved two problems: namely, Latin (American) music was also removed too. Each category will contain some flaws, but looking through the results suggests that the majority of our data matches our intentions.
+
+https://github.com/KoenHC/ObjecttoData/blob/master/sort%20-u%20complete_file%20%3E%20sorted_file_JSON.sh%20READ%20DESCRIPTION 
+Image 4) Sort –u command
+
+Our next step entailed filtering the information from the files which were left after sorting and parsing the original data. We needed information on two key questions for each category: 
+-	What is the distribution of their articles over time?
+-	What is the ratio between respectively the main categories and the subcategories within main categories?
+To analyse the distribution over time we decided that graphs would be a useful visualisation. We saved our results in CSV-files, which can be opened with Microsoft Excel. For each category we ran the following script (art history is taken as example here, indicated by italics): 
+
+https://github.com/KoenHC/ObjecttoData/blob/master/Convert%20%27sorted%27%20file%20to%20two%20separate%20files%20for%20frequencies%20and%20years
+Image 5) from_sorted_to_fq_yrs command
+
+Firstly, we asked for the publication dates of the articles with the ‘jq’ command. These we sorted chronologically and then saved in a separate .csv file. Then we wanted to keep the years only and count the frequency of the articles per year: we had to print the first column by awk (defining a column as bordered by a ‘-‘) and sort and count these with ‘uniq –c’. These results were saved in a separate file. Thereafter, we needed to divide this file in two separate files, one with the frequencies and one with the years (.csv normally puts all columns in one Excel column, making it impossible to chart the data). Therefore the script saves the first columns of the ‘...frequences_years.csv’ and the second column in two different files. These two csv files we combined in Word charts (Excel). We copied and pasted the years in the first column and the frequencies in the second column: this way we put the years on the x-as and the frequencies on the y-as.
+For the distribution of categories and associated subcategories, we decided to make bar graphs. With ‘grep –count’, we counted the occurrence of each term in the sorted files and put the results in the graphs. In some categories we had to deal with overlapping terms. To adjust for this we applied some simple calculations. For instance, searching for main category ‘literature’ also includes subcategory ‘comparative literature’. So the result of comparative literature had to be manually subtracted from literature to count each category separately. The script we used for this can be found on Github: Count_Catogories_&_Subcategories.sh https://github.com/KoenHC/ObjecttoData/blob/master/Count%20categories%20and%20subcategories%20in%20sorted%20files
+ 
+3. Results
+
+For each category we made two charts as described above: one with the distribution over time and one with the distribution of category and associated subcategories. To get a good overview of all results together, we also made four ‘main’ graphs. All graphs are presented in RESULTS.pptx. Here we will only treat the four main graphs. 
+
+1. Distribution of categories over time 1851 – Aug. 2014 (slide 1)
+The first main graph concerns the amounts of hits, or how many times each academic field is mentioned, in each decade from the 1851 to August 2014. The graph shows an interesting pattern. In the first decades there are barely hits, while a gradual growth seems to begin in the 1920s/1930s. In the 1970s (Arts) and in especially in the 1980s all categories show an immense increase. This increased amount of hits persists in the subsequent decades. 
+
+Graph 1) Distribution of categories 1851 – Aug. 2014.
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Distribution of academic fields in the humanities (slide 2)
+This second graph shows the total amount of hits of each category (the main categories plus their subcategories) over the whole period. Arts, Literature, and History are the largest categories. The academic field of Media Studies is barely mentioned compared to the others.
+
+
+Graph 2) Distribution of fields in the Humanities.
+
+3. Number of articles per category (slide 3)
+This graph shows the amount of articles, instead of hits. In column 1 the number of articles of each category is showed, while column 2 indicates the ratio of these numbers as percentage of the total. There might be quite an overlap between these, because one article can mention several humanities fields. Furthermore, while not
+Graph 3) Number of articles per main category.
+
+
+ directly relevant in light of our research question, note that the percentage of our number of articles in relation to the total amount of articles in the NY Times API  is extremely low (bottom row ). Due to subject and our specific definitions this is not surprising.
+
+The percentage of articles in relation to total amount of articles in the NYT API is 0,0485725093478623 ( = (100/15560242)*7558). 
+
+4. Number of ‘paid death notices’
+As mentioned above, we were unable to remove all the duplicates. Often these duplicates are ‘paid death notices’ with different meta data. To show the amount of these ‘paid death notices’ we made a separate graph. The first column shows the total number of articles for each category. In column 2 the amount of ‘paid death notices’ can be seen. In the last column the ratio of these death notices is shown as percentage of the total amount of articles per category. Only Art History and Media Studies stand out with high ratios. Our explanation for this is statistical. Because these categories contain few articles to begin with, small amounts of deviations cause large spikes.
+
+Graph 4) Number of ‘paid death notices’.
+
+
+
+
+
+
+
+
+ 
+4. Interpretation and preliminary explanation of results
+
+The data-gathering and -manipulation described in this paper were of a highly educational (and thus ‘experimental’) nature. Therefore, our explanation and interpretation that follow here of said data are of a preliminary nature. 
+
+Our initial research question asked: With which academic field(s) are the humanities primarily associated in the New York Times from 1853-2014, and (how) has this changed through time? 
+The first part of this question can be answered with the graphs visualizing ratio between different academic fields, elaboration on the second part leans on graph 1. As can be seen from the graphs, Arts, Literature and History yielded the highest numbers of hits and articles. These results are not surprising; these are the subjects you would expect being treated in a newspaper. Cultural sections often discuss art exhibitions, books, and music and our results strongly point toward this indeed. ‘History’ is a bit more difficult to explain, except that explaining phenomena often involves providing histories - almost everything has a history. The question of course arises where to draw the boundary between casual mentioning’s and history as an academic discipline. It would be difficult to digitally distinguish between the two. The low yields of Art history and Media studies have already been discussed.
+The development over time reveals a more surprising picture. Until the 1920s the humanities are barely mentioned – often not escaping the single digits for complete decades. We expect this has something to do with incomplete digitalization of the New York Times or different spelling. For earlier articles, only ‘snippets’ are presently part of the dataset. However, in addition we would like to propose another, more substantive, explanation. Within the universities we listed in this paper, distinct humanities faculties were only founded at the end of the nineteenth century, with another surge around the 1930s. Humanities centers are even newer than that, in fact dating back from the 1970s-1980s.  It could be possible that the humanities were only mentioned in mainstream media in relation to our disciplines/categories when they gained a distinct identity as such within academia.
+The history of the New York Times provides an explanation of less speculative nature too. In addition to other new sections, in the September 1976 it introduced a redesigned ‘Arts and Entertainment’ section, followed by a ‘Living Section’ in November.  Moreover, a national edition was launched in 1980. We reason that the introduction of these sections and a national edition provided more room for articles on the humanities. This argument is strengthened by the fact that in the U.S., the humanities and (entertaining) arts are more intertwined than in (Continental) Europe.
+
+
+5. Difficulties
+
+The major difficulty we encountered in analysing the data were duplicate articles that corrupted our results. The main reason for this was the presence of the section ‘paid death notices’ in the New York Times dataset, often containing these articles. While it was possible to filter out most of the duplicate articles by using the simple sort -u command, it was not possible for all of the articles, as in some cases the metadata of the articles was not identical, and thus left in. As a way to see how many ‘paid death notices’ were present in each of our categories we have made a separate graph, showcasing the percentage of each of the categories which had been tagged as an obituary in the metadata. That way, it is possible to predict how many hits may be double in the actual hit count in the other graphs. Furthermore, the distinction between casual mentioning’s and the treatment of a subject/category as an academic field is difficult to make, let alone to distinguish digitally.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6. References
+ 
+
+Brown University: Center for Public Humanities: 1995
+   http://www.brown.edu/academics/public-humanities/about and Cogut Center for
+   the Humanities: 2003,  http://www.brown.edu/academics/humanities/about-us/history 
+
+Chicago Univ.: Humanities Division: 1930,
+   http://humanities.uchicago.edu/about/history  
+
+Harvard: Faculty of Arts and Sciences: 1890, 
+   http://www.fas.harvard.edu/pages/what-fas
+
+Yale: Graduate School of Arts and Sciences: 1847,
+   http://www.yale.edu/about/history.html and Whitney Center for Humanties: 1981,
+   http://yaledailynews.com/blog/2012/02/29/whitney-looks-back-on-30-years/ 
+
+MIT: http://shass.mit.edu/inside/history
+
+New York Times API data set derived from course website;
+   http://cleverdon.hum.uva.nl/marijn/OtD/nytimes/ 
+
+New York Times Developer Network select article search API
+   http://developer.nytimes.com/io-docs [18-10-14].
+
+New York Time history http://www.nysl.nysed.gov/nysnp/nytlucey.htm and
+   http://www.nytco.com/who-we-are/culture/our-history/ 
+
+ Northwestern Univ.: Weinberg College founded: 1851,
+   http://www.weinberg.northwestern.edu/discover/all-about-weinberg/history.html
+
+Mauritsz, Arlette; Mul, Berend; Van Schaik, Koen, our Github page: htt-ps://github.com/KoenHC/ObjecttoData 
+
+Stanford: Humanities Center: 1980, http://shc.stanford.edu/about
+
+UCLA: College of Letters and Sciences founded: 1919; 1927 college becomes univer-
+   sity; 1933 master of arts degree, http://www.ucla.edu/about/history 
+
+Listings of academic fields:
+
+MIT; School of Humanities, Arts & Social sciences
+   http://shass.mit.edu/undergraduate/majors  
+
+Univ. of Chicago; Division of the Humanities, http://humanities.uchicago.edu/  
+
+Stanford Univ.; School of Humanities & Sciences
+   http://www.stanford.edu/academics/departments.html#school 
+
+Harvard Univ.; Faculty of Arts and Sciences, http://www.fas.harvard.edu/pages/academic-divisions 
+
+Princeton Univ.:  Counsil of the Humanities,
+   http://www.princeton.edu/main/academics/departments/ 
+
+Yale Univ.; Humanities Program and Major, http://www.yale.edu/humanities/arts.html  
+
+Dartmouth College; Leslie Center for Humanities,
+   http://dartmouth.edu/education/departments-programs-arts-sciences 
+
+Berkeley; College of Letters & Science; Arts and Humanities,
+   http://ls.berkeley.edu/?q=about-college/l-s-divisions/arts-humanities 
+
+Northwestern Univ.; Alice Kaplan Institute for the Humanities,
+   http://www.northwestern.edu/academics/colleges-schools.html 
+
+UCLA: Academic Unit; Humanities, http://www.humanities.ucla.edu/academic 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
